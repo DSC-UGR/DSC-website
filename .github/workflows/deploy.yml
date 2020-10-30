@@ -12,8 +12,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-        - run: npm install
-        - run: npm run deploy
+      - run: git config --global user.email "dscgranada@gmail.com"
+      - run: git config --global user.name "DSC-UGR"
+      - run: npm install
+      - run: npm run deploy
         with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         env:
