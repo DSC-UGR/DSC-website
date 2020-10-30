@@ -1,17 +1,24 @@
 <template>
   <div class="layout">
-    <header class="header">
-      <strong>
-        <g-link to="/">{{ $static.metadata.siteName }}</g-link>
-      </strong>
+    <b-navbar class="header" fixed="top" toggleable="lg" type="dark">
+      <b-navbar-brand class="title">Developer Student Club</b-navbar-brand>
+      <span id="university">UGR</span>
       <nav class="nav">
         <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/about/">About</g-link>
       </nav>
-    </header>
-    <slot/>
+    </b-navbar>
+    <slot />
   </div>
 </template>
+
+<script>
+import { BNavbar } from "bootstrap-vue";
+export default {
+  components: {
+    BNavbar,
+  },
+};
+</script>
 
 <static-query>
 query {
@@ -22,11 +29,26 @@ query {
 </static-query>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,100&display=swap");
+
 body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:0;
+  font-family: "Roboto", Roboto, -apple-system, system-ui, BlinkMacSystemFont,
+    "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
   line-height: 1.5;
+}
+
+#university {
+  height: fit-content;
+  font-size: 12px;
+  margin-top: 27px;
+  margin-left: 4px;
+}
+
+.title {
+  font-weight: 100;
+  font-size: 1.6em;
 }
 
 .layout {
@@ -37,14 +59,13 @@ body {
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
+  background-color: #2962ff;
+  color: white;
+}
+
+.nav {
 }
 
 .nav__link {
-  margin-left: 20px;
 }
 </style>

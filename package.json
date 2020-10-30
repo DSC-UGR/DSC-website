@@ -7,6 +7,12 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
-    "gridsome": "^0.7.0"
+    "bootstrap-vue": "^2.18.1",
+    "gridsome": "^0.7.0",
+    "twitter": "^1.7.1"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.4"
   }
 }

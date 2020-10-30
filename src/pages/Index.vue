@@ -1,33 +1,90 @@
 <template>
   <Layout>
-
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
-
-    <h1>Hello, world!</h1>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-    </p>
-
-    <p class="home-links">
-      <a href="https://gridsome.org/docs/" target="_blank" rel="noopener">Gridsome Docs</a>
-      <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
-    </p>
-
+    <div v-for="(post, i) in $page.posts.edges" :key="i" class="element">
+      <div class="element-header">
+        <span class="channel">TWITTER</span>
+        <span class="bold text--grey">{{ post.node.created_at }}</span>
+      </div>
+      <b-card class="card">
+        <div class="d-flex">
+          <b-avatar
+            class="mr-2"
+            variant="info"
+            src="https://placekitten.com/300/300"
+          ></b-avatar>
+          <div>
+            <div class="font-weight-bold">{{ post.node.user_name }}</div>
+            <div class="font-italic">@{{ post.node.screen_name }}</div>
+          </div>
+        </div>
+        <b-card-text class="font-weight-light my-3">
+          {{ post.node.text }}
+        </b-card-text>
+      </b-card>
+    </div>
   </Layout>
 </template>
 
-<script>
-export default {
-  metaInfo: {
-    title: 'Hello, world!'
+<page-query>
+query {
+  posts: allTwitterPost {
+    edges {
+      node {
+        created_at,
+        text,
+        user_name,
+        screen_name,
+        user_description,
+        profile_url
+
+      }
+    }
   }
 }
+</page-query>
+
+<script>
+import { BCard, BCardText, BAvatar } from "bootstrap-vue";
+export default {
+  components: {
+    BCard,
+    BCardText,
+    BAvatar,
+  },
+  metaInfo: {
+    title: "Hello, world!",
+  },
+};
 </script>
 
 <style>
-.home-links a {
-  margin-right: 1rem;
+.element {
+  margin-top: 48px;
+}
+
+.element-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  width: 100%;
+  border: 2px solid #00808040;
+  border-radius: 16px;
+  margin-top: 16px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.text--grey {
+  color: #606060;
+}
+
+.channel {
+  font-weight: 200;
+  color: #00acee;
+  letter-spacing: 1px;
 }
 </style>
