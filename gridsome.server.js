@@ -14,6 +14,7 @@ module.exports = function(api) {
     let tweets = [];
     // Solamente se coge datos reales cuando esté en producción
     if (process.env.PRODUCTION) {
+      console.log("GENERANDO EN PRODUCCIÓN");
       // Configuramos el cliente con nuestras claves
       var client = new Twitter({
         consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -29,6 +30,7 @@ module.exports = function(api) {
       // Obtenemos nuestros tweets
       tweets = await client.get("statuses/user_timeline", params);
     } else {
+      console.log("GENERANDO EN LOCAL");
       // En local se generan tweets de prueba
       for (let i = 0; i < 20; i += 1) {
         tweets.push({
