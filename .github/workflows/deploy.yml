@@ -13,6 +13,9 @@ jobs:
         with:
           node-version: 12.x
           repo-token: ${{ secrets.ACCESS_TOKEN }}
+      - run: git config --global user.email "dscgranada@gmail.com"
+      - run: git config --global user.name "DSC-UGR"
+      - run: npm install
       - run: npm run deploy
         env:
           TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
