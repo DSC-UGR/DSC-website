@@ -12,6 +12,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
+          repo-token: ${{ secrets.ACCESS_TOKEN }}
       - run: npm install
       - run: npm run deploy
         env:
