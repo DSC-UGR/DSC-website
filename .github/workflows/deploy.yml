@@ -12,11 +12,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-          repo-token: ${{ secrets.ACCESS_TOKEN }}
-      - run: git config --global user.email "dscgranada@gmail.com"
-      - run: git config --global user.name "DSC-UGR"
-      - run: npm install
-      - run: npm run deploy
+        - run: npm install
+        - run: npm run deploy
+        with:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         env:
           TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
           TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
