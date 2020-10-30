@@ -15,7 +15,7 @@ module.exports = function (api) {
   }) => {
     let tweets = []
     // Solamente se coge datos reales cuando esté en producción
-    if (process.env.production) {
+    if (process.env.PRODUCTION) {
       // Configuramos el cliente con nuestras claves
       var client = new Twitter({
         consumer_key: process.env.TWITTER_CONSUMER_KEY,

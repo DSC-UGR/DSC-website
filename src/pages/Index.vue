@@ -3,7 +3,9 @@
     <div v-for="(post, i) in $page.posts.edges" :key="i" class="element">
       <div class="element-header">
         <span class="channel">TWITTER</span>
-        <span class="bold text--grey">{{ post.node.created_at }}</span>
+        <span class="bold text--grey">{{
+          post.node.created_at | toDateString
+        }}</span>
       </div>
       <b-card class="card">
         <div class="d-flex">
@@ -45,7 +47,10 @@ query {
 
 <script>
 import { BCard, BCardText, BAvatar } from "bootstrap-vue";
+import dateMixin from "@/mixins/date";
+
 export default {
+  mixins: [dateMixin],
   components: {
     BCard,
     BCardText,

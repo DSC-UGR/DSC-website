@@ -9,6 +9,7 @@
   "dependencies": {
     "bootstrap-vue": "^2.18.1",
     "gridsome": "^0.7.0",
+    "moment": "^2.29.1",
     "twitter": "^1.7.1"
   },
   "devDependencies": {
