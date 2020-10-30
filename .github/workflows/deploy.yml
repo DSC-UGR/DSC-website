@@ -12,13 +12,17 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12.x
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-      - run: git config --global user.email "dscgranada@gmail.com"
-      - run: git config --global user.name "DSC-UGR"
       - run: npm install
-      - run: npm run deploy
+      - run: npm run build
         env:
           TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
           TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
           TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
           PRODUCTION: "true"
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          BRANCH: master # The branch the action should deploy to.
+          FOLDER: dist # The folder the action should deploy.
+          CLEAN: true # Automatically remove deleted files from the deploy branch
