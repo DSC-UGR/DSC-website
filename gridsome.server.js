@@ -13,20 +13,41 @@ module.exports = function (api) {
   api.loadSource(async ({
     addCollection
   }) => {
-    // Configuramos el cliente con nuestras claves
-    var client = new Twitter({
-      consumer_key: process.env.TWITTER_CONSUMER_KEY,
-      consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-      bearer_token: process.env.TWITTER_BEARER_TOKEN
-    });
+    let tweets = []
+    // Solamente se coge datos reales cuando esté en producción
+    if (process.env.production) {
+      // Configuramos el cliente con nuestras claves
+      var client = new Twitter({
+        consumer_key: process.env.TWITTER_CONSUMER_KEY,
+        consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+        bearer_token: process.env.TWITTER_BEARER_TOKEN
+      });
 
-    // Usuario que se va a buscar
-    var params = {
-      screen_name: 'DSC_Granada'
-    };
+      // Usuario que se va a buscar
+      var params = {
+        screen_name: 'DSC_Granada'
+      };
 
-    // Obtenemos nuestros tweets
-    const tweets = await client.get('statuses/user_timeline', params)
+      // Obtenemos nuestros tweets
+      tweets = await client.get('statuses/user_timeline', params)
+
+    } else {
+      // En local se generan tweets de prueba
+      for (let i = 0; i < 20; i += 1) {
+        tweets.push({
+          id: i,
+          media: 'twitter',
+          created_at: new Date(),
+          text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+          user: {
+            name: 'Cuenta del DSC_Granada',
+            screen_name: 'DSC_Granada',
+            description: 'Descripción de la cuenta del DSC_Granada',
+            profile_image_url: 'http://pbs.twimg.com/profile_images/1180788038496083973/z2L0vBWY_normal.jpg'
+          }
+        })
+      }
+    }
 
     // Creamos una colección de posts de Twitter
     const twitterCollection = addCollection({
