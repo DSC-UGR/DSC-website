@@ -30,7 +30,7 @@ module.exports = function(api) {
       // Obtenemos nuestros tweets
       tweets = await client.get("statuses/user_timeline", params);
     } else {
-      console.log("GENERANDO EN LOCAL");
+      console.log("GENERANDO PÁGINA EN LOCAL");
       // En local se generan tweets de prueba
       for (let i = 0; i < 20; i += 1) {
         tweets.push({
