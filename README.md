@@ -1,14 +1,25 @@
-# Default starter for Gridsome
+# Developer Student Club - Granada
 
-This is the project you get when you run `gridsome create new-project`.
+Página principal del DSC de la Univerisdad de Granada.
 
-### 1. Install Gridsome CLI tool if you don't have
+## Dependencias
 
-`npm install --global @gridsome/cli`
+Necesitas instalar `@gridsome/cli` para generar la página. Puedes hacerlo con:
 
-### 2. Create a Gridsome project
+    npm install --global @gridsome/cli
 
-1. `gridsome create my-gridsome-site` to install default starter
-2. `cd my-gridsome-site` to open the folder
-3. `gridsome develop` to start a local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+Antes de ejecutar cualquier comando de `gridsome`, necesitas instalar localmente las dependencias del proyecto:
+
+    npm install .
+
+Si vas a instalarlas en un entorno de producción, usa:
+
+    npm install ci
+
+## Instrucciones
+
+Para levantar la web en modo desarrollo en `http://localhost:8080`
+
+    gridsome develop
+
+*Nota*: si `gridsome develop` falla, es porque todavía no has instalado las dependencias del proyecto.
