@@ -1,6 +1,5 @@
 {
   "name": "DSC-website",
-  "private": true,
   "scripts": {
     "build": "gridsome build",
     "predeploy": "npm run build",
@@ -12,7 +11,6 @@
     "bootstrap-vue": "^2.18.1",
     "dayjs": "^1.9.4",
     "ci": "^1.0.0",
-    "gh-pages": "^3.1.0",
     "gridsome": "^0.7.0",
     "twitter": "^1.7.1"
   },
