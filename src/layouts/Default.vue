@@ -12,10 +12,11 @@
 </template>
 
 <script>
-import { BNavbar } from "bootstrap-vue";
+import { BNavbar, BNavbarBrand } from "bootstrap-vue";
 export default {
   components: {
     BNavbar,
+    BNavbarBrand,
   },
 };
 </script>
