@@ -1,17 +1,10 @@
 <template>
-  <Layout>
+  <Layout style="margin-top: 82px">
     <post
-      v-for="(post, i) in $page.articles.edges"
+      v-for="(post, i) in posts"
       :key="i"
       :post="post"
-      type="devto"
-      class="element"
-    ></post>
-    <post
-      v-for="(post, i) in $page.tweets.edges"
-      :key="i"
-      :post="post"
-      type="twitter"
+      :type="post.type"
       class="element"
     ></post>
   </Layout>
@@ -35,11 +28,10 @@ query {
   articles: allDevtoArticle {
     edges {
       node {
-        creator,
-        author,
+        user_name: author,
         title,
-        link,
-        pubDate
+        url: link,
+        created_at: pubDate
       }
     }
   }
@@ -55,6 +47,28 @@ export default {
   },
   components: {
     Post,
+  },
+  data() {
+    return {
+      posts: [],
+    };
+  },
+
+  mounted() {
+    this.posts = [
+      ...this.$page.articles.edges.map((article) => ({
+        ...article,
+        type: "devto",
+      })),
+      ...this.$page.tweets.edges.map((tweet) => ({
+        ...tweet,
+        type: "twitter",
+      })),
+    ].sort(function(a, b) {
+      var d1 = new Date(a.node.created_at);
+      var d2 = new Date(b.node.created_at);
+      return d2.getTime() - d1.getTime();
+    });
   },
 };
 </script>

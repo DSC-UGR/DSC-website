@@ -6,7 +6,7 @@
         src="http://pbs.twimg.com/profile_images/1180788038496083973/z2L0vBWY_normal.jpg"
       ></b-avatar>
       <div>
-        <div class="font-weight-bold">{{ data.node.author }}</div>
+        <div class="font-weight-bold">{{ data.node.user_name }}</div>
       </div>
     </div>
     <b-card-text class="font-weight-light my-3">

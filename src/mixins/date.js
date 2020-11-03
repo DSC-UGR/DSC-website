@@ -5,7 +5,7 @@ export default {
   filters: {
     toDateString(value) {
       dayjs.locale('es');
-      return dayjs().format('D [de] MMMM [de] YYYY');
+      return dayjs(value).format('D [de] MMMM [de] YYYY');
     }
   }
 }

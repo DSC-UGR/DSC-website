@@ -8,9 +8,11 @@
 // Importamos la API de Twitter
 const Twitter = require("twitter");
 
-module.exports = function(api) {
+module.exports = function (api) {
   // Esta función se llamará cuando se genere la página
-  api.loadSource(async ({ addCollection }) => {
+  api.loadSource(async ({
+    addCollection
+  }) => {
     let tweets = [];
     // Solamente se coge datos reales cuando esté en producción
     if (process.env.PRODUCTION) {
@@ -37,14 +39,12 @@ module.exports = function(api) {
           id: i,
           media: "twitter",
           created_at: new Date(),
-          text:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           user: {
             name: "Cuenta del DSC_Granada",
             screen_name: "DSC_Granada",
             description: "Descripción de la cuenta del DSC_Granada",
-            profile_image_url:
-              "http://pbs.twimg.com/profile_images/1180788038496083973/z2L0vBWY_normal.jpg",
+            profile_image_url: "http://pbs.twimg.com/profile_images/1180788038496083973/z2L0vBWY_normal.jpg",
           },
         });
       }
@@ -71,7 +71,9 @@ module.exports = function(api) {
   });
   // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
 
-  api.createPages(({ createPage }) => {
+  api.createPages(({
+    createPage
+  }) => {
     // Use the Pages API here: https://gridsome.org/docs/pages-api/
   });
 };
