@@ -9,11 +9,7 @@
       </div>
       <b-card class="card">
         <div class="d-flex">
-          <b-avatar
-            class="mr-2"
-            variant="info"
-            src="https://placekitten.com/300/300"
-          ></b-avatar>
+          <b-avatar class="mr-2" :src="post.node.profile_url"></b-avatar>
           <div>
             <div class="font-weight-bold">{{ post.node.user_name }}</div>
             <div class="font-italic">@{{ post.node.screen_name }}</div>
