@@ -8,5 +8,13 @@ module.exports = {
   siteName: "Gridsome",
   siteUrl: "https://DSC-UGR.github.io",
   pathPrefix: "/DSC-website",
-  plugins: [],
+  plugins: [
+    {
+      use: "gridsome-source-rss",
+      options: {
+        feedUrl: "https://dev.to/feed/alexmenor",
+        typeName: "devtoArticle",
+      },
+    },
+  ],
 };

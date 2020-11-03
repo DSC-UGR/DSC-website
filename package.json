@@ -9,9 +9,10 @@
   },
   "dependencies": {
     "bootstrap-vue": "^2.18.1",
-    "dayjs": "^1.9.4",
     "ci": "^1.0.0",
+    "dayjs": "^1.9.4",
     "gridsome": "^0.7.0",
+    "gridsome-source-rss": "^1.0.0",
     "twitter": "^1.7.1"
   },
   "devDependencies": {
