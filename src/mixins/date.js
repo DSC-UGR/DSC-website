@@ -1,9 +1,11 @@
-var moment = require('moment');
+var dayjs = require('dayjs');
+require('dayjs/locale/es');
+
 export default {
   filters: {
     toDateString(value) {
-      moment.locale('es');
-      return moment(value).format('LL');
+      dayjs.locale('es');
+      return dayjs().format('D [de] MMMM [de] YYYY');
     }
   }
 }
