@@ -14,7 +14,7 @@ Antes de ejecutar cualquier comando de `gridsome`, necesitas instalar localmente
 
 Si vas a instalarlas en un entorno de producción, usa:
 
-    npm install ci
+    npm ci
 
 ## Instrucciones
 
@@ -22,4 +22,4 @@ Para levantar la web en modo desarrollo en `http://localhost:8080`
 
     gridsome develop
 
-*Nota*: si `gridsome develop` falla, es porque todavía no has instalado las dependencias del proyecto.
+_Nota_: si `gridsome develop` falla, es porque todavía no has instalado las dependencias del proyecto.
