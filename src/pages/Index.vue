@@ -1,12 +1,24 @@
 <template>
   <Layout style="margin-top: 82px">
-    <post
-      v-for="(post, i) in posts"
-      :key="i"
-      :post="post"
-      :type="post.type"
-      class="element"
-    ></post>
+
+    <div class="tweets">
+      <post
+          v-for="(post, i) in posts"
+          :key="i"
+          :post="post"
+          :type="post.type"
+          class="element"
+      ></post>
+    </div>
+    <a class="discord-button" href="https://discord.gg/MTBqq9tz">
+      <button
+          class="round-btn"
+      >
+        <div class="container">
+          <img src="../assets/img/discord.png"/>
+        </div>
+      </button>
+    </a>
   </Layout>
 </template>
 
@@ -74,7 +86,45 @@ export default {
 </script>
 
 <style>
+
+button:focus {
+  outline: 0;
+}
+
+.container{
+  padding: 0px;
+}
+
+.container img {
+  width: 24px;
+  height: 18px;
+}
+
+.discord-button {
+  top: 80px;
+  right: 10px;
+  position: absolute;
+}
+
 .element {
   margin-top: 48px;
 }
+
+.round-btn:before {
+  display:inline-block;
+  vertical-align:middle;
+  outline: none;
+}
+
+.round-btn {
+  background-color: #8c9dfb;
+  border: none;
+  display: inline-block;
+  border-radius: 100%;
+  padding: 0px;
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+}
+
 </style>
